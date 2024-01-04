@@ -1,0 +1,27 @@
+.cookie-page {
+  display: flex;
+  flex-direction: row;
+}
+
+.cookie-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+}
+
+.cookie-upgrades {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+}
+
+.cookie-picture {
+  height: 250px;
+  width: auto;
+  border-radius: 50%;
+  margin-top: 20px;
+}
