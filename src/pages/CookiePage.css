@@ -1,6 +1,7 @@
 .cookie-page {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 
 .cookie-container {
@@ -8,7 +9,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: blue;
+  width: 50vh;
 }
 
 .cookie-upgrades {
@@ -16,12 +17,88 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background-color: rgb(28, 0, 54);
+  width: 50vh;
+  padding-top: 5px;
+  padding-bottom: 20px;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+}
+
+.cookie-stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid rgb(0, 0, 0);
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(53, 0, 0);
 }
 
 .cookie-picture {
-  height: 250px;
+  height: 200px;
   width: auto;
   border-radius: 50%;
   margin-top: 20px;
+  cursor: pointer;
+}
+
+.cookie-picture:hover {
+  height: 210px;
+  width: auto;
+}
+
+.cookie-picture:active {
+  height: 190px;
+  width: auto;
+}
+
+.cookie-upgrades-text {
+  margin-bottom: 10px;
+}
+
+.clickStrengthUpgrade-container {
+  display: flex;
+  flex-direction: row;
+  border: 2px solid rgb(0, 0, 0);
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.clickStrengthUpgrade-container:hover {
+  opacity: 0.7;
+  cursor: pointer;
+  background-color: rgb(38, 0, 73);
+}
+
+.clickStrengthUpgrade-container:active {
+  background-color: rgb(64, 0, 124);
+}
+
+.clickStrengthUpgrade-textcost-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  width: 60%;
+  margin-left: 5%;
+  font-size: 20px;
+}
+
+.clickStrengthUpgrade-cost {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.cookie-picture2 {
+  height: 50px;
+  clip-path: inset(16px 16px 16px 16px round 50%);
+}
+
+.clickStrengthUpgrade-num-owned {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 30%;
 }
