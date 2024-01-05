@@ -23,8 +23,9 @@ export default function CookiePage() {
   };
 
   const CookieClicked = () => {
-    setCookies((prev) => {
-      return prev + 1;
+    setCookies((prevCookies) => {
+      const newCookies = prevCookies + clickStrength;
+      return newCookies;
     });
   };
 
@@ -41,14 +42,20 @@ export default function CookiePage() {
 
   const ClickStrengthUpgradeClicked = () => {
     if (cookies >= doughRoller[0]) {
-      setCookies((prev) => {
-        return prev - doughRoller[0];
+      setCookies((prevCookies) => {
+        const newCookies = prevCookies - doughRoller[0];
+        return newCookies;
       });
-      setDoughRoller((prev) => {
-        prev[0] = Math.round(prev[0] * 2.5);
-        prev[1] = prev[1] + 1;
-        return prev;
+      setDoughRoller((prevDoughRoller) => {
+        const newDoughRoller = [...prevDoughRoller]
+        newDoughRoller[0] = Math.round(prevDoughRoller[0] * 2.3);
+        newDoughRoller[1] = prevDoughRoller[1] + 1;
+        return newDoughRoller;
       });
+      setClickStrength(prevClickStrength => {
+        const newClickStrength = prevClickStrength + 1;
+        return newClickStrength;
+      })
     }
   };
 

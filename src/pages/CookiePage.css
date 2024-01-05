@@ -64,15 +64,16 @@
   width: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
+  cursor: pointer;
 }
 
 .clickStrengthUpgrade-container:hover {
   opacity: 0.7;
-  cursor: pointer;
   background-color: rgb(38, 0, 73);
 }
 
 .clickStrengthUpgrade-container:active {
+  opacity: 0.7;
   background-color: rgb(64, 0, 124);
 }
 
