@@ -7,7 +7,8 @@ export default function CookiePage() {
   const [cookies, setCookies] = useState(0);
   const [cps, setCps] = useState(0);
   const [clickStrength, setClickStrength] = useState(1);
-  const [doughRoller, setDoughRoller] = useState([10, 0]);
+  const [doughRoller, setDoughRoller] = useState({cost: 10, 
+    numOwned: 0});
 
   const CookieStats = () => {
     return (
@@ -41,15 +42,14 @@ export default function CookiePage() {
   };
 
   const ClickStrengthUpgradeClicked = () => {
-    if (cookies >= doughRoller[0]) {
+    if (cookies >= doughRoller.cost) {
       setCookies((prevCookies) => {
-        const newCookies = prevCookies - doughRoller[0];
+        const newCookies = prevCookies - doughRoller.cost;
         return newCookies;
       });
       setDoughRoller((prevDoughRoller) => {
-        const newDoughRoller = [...prevDoughRoller]
-        newDoughRoller[0] = Math.round(prevDoughRoller[0] * 2.3);
-        newDoughRoller[1] = prevDoughRoller[1] + 1;
+        const newDoughRoller = {cost: Math.round(prevDoughRoller.cost * 2.3),
+        numOwned: prevDoughRoller.numOwned + 1}
         return newDoughRoller;
       });
       setClickStrength(prevClickStrength => {
@@ -68,7 +68,7 @@ export default function CookiePage() {
               Dough Roller: +1 click strength
             </div>
             <div className="clickStrengthUpgrade-cost">
-              <div>cost: {doughRoller[0]}</div>
+              <div>cost: {doughRoller.cost}</div>
               <img
                 className="cookie-picture2"
                 src={cookieImage2}
@@ -76,7 +76,7 @@ export default function CookiePage() {
               ></img>
             </div>
           </div>
-          <div className="clickStrengthUpgrade-num-owned">{doughRoller[1]}</div>
+          <div className="clickStrengthUpgrade-num-owned">{doughRoller.numOwned}</div>
         </div>
       </>
     );
