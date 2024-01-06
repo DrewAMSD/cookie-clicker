@@ -116,7 +116,7 @@ export default function CookiePage() {
       setDoughRoller((prevDoughRoller) => {
         const newDoughRoller = {
           ...prevDoughRoller,
-          cost: Math.floor(prevDoughRoller.cost * 2.1),
+          cost: Math.floor(prevDoughRoller.cost * 1.4),
           numOwned: prevDoughRoller.numOwned + 1,
         };
         return newDoughRoller;
@@ -138,7 +138,7 @@ export default function CookiePage() {
       setGrandma((prevGrandma) => {
         const newGrandma = {
           ...prevGrandma,
-          cost: Math.floor(prevGrandma.cost * 1.15),
+          cost: Math.ceil(prevGrandma.cost * 1.05),
           numOwned: prevGrandma.numOwned + 1,
         };
         return newGrandma;
@@ -159,7 +159,7 @@ export default function CookiePage() {
       setFarm((prevFarm) => {
         const newFarm = {
           ...prevFarm,
-          cost: Math.floor(prevFarm.cost * 1.4),
+          cost: Math.floor(prevFarm.cost * 1.1),
           numOwned: prevFarm.numOwned + 1,
         };
         return newFarm;
@@ -180,7 +180,7 @@ export default function CookiePage() {
       setFactory((prevFactory) => {
         const newFactory = {
           ...prevFactory,
-          cost: Math.floor(prevFactory.cost * 1.6),
+          cost: Math.floor(prevFactory.cost * 1.15),
           numOwned: prevFactory.numOwned + 1,
         };
         return newFactory;
@@ -201,7 +201,7 @@ export default function CookiePage() {
       setNuclearPlant((prevNuclearPlant) => {
         const newNuclearPlant = {
           ...prevNuclearPlant,
-          cost: Math.floor(prevNuclearPlant.cost * 1.4),
+          cost: Math.floor(prevNuclearPlant.cost * 1.2),
           numOwned: prevNuclearPlant.numOwned + 1,
         };
         return newNuclearPlant;
