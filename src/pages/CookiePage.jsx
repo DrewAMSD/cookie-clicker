@@ -25,6 +25,18 @@ export default function CookiePage() {
     strength: 100,
     multiplier: 1,
   });
+  const [factory, setFactory] = useState({
+    cost: 500000,
+    numOwned: 0,
+    strength: 5000,
+    multiplier: 1,
+  });
+  const [nuclearPlant, setNuclearPlant] = useState({
+    cost: 10000000,
+    numOwned: 0,
+    strength: 200000,
+    multiplier: 1,
+  });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -147,13 +159,56 @@ export default function CookiePage() {
       setFarm((prevFarm) => {
         const newFarm = {
           ...prevFarm,
-          cost: Math.floor(prevFarm.cost * 1.15),
+          cost: Math.floor(prevFarm.cost * 1.4),
           numOwned: prevFarm.numOwned + 1,
         };
         return newFarm;
       });
       setCps((prevCps) => {
         const newCps = prevCps + farm.strength * farm.multiplier;
+        return newCps;
+      });
+    }
+  };
+
+  const FactoryClicked = () => {
+    if (cookies >= factory.cost) {
+      setCookies((prevCookies) => {
+        const newCookies = prevCookies - factory.cost;
+        return newCookies;
+      });
+      setFactory((prevFactory) => {
+        const newFactory = {
+          ...prevFactory,
+          cost: Math.floor(prevFactory.cost * 1.6),
+          numOwned: prevFactory.numOwned + 1,
+        };
+        return newFactory;
+      });
+      setCps((prevCps) => {
+        const newCps = prevCps + factory.strength * factory.multiplier;
+        return newCps;
+      });
+    }
+  };
+
+  const NuclearPlantClicked = () => {
+    if (cookies >= nuclearPlant.cost) {
+      setCookies((prevCookies) => {
+        const newCookies = prevCookies - nuclearPlant.cost;
+        return newCookies;
+      });
+      setNuclearPlant((prevNuclearPlant) => {
+        const newNuclearPlant = {
+          ...prevNuclearPlant,
+          cost: Math.floor(prevNuclearPlant.cost * 1.4),
+          numOwned: prevNuclearPlant.numOwned + 1,
+        };
+        return newNuclearPlant;
+      });
+      setCps((prevCps) => {
+        const newCps =
+          prevCps + nuclearPlant.strength * nuclearPlant.multiplier;
         return newCps;
       });
     }
@@ -188,6 +243,22 @@ export default function CookiePage() {
             upgradeItem={farm}
             itemInfo={"Farm: +" + farm.strength * farm.multiplier + " cps"}
             onClick={FarmClicked}
+          />
+          <UpgradeItem
+            upgradeItem={factory}
+            itemInfo={
+              "Factory: +" + factory.strength * factory.multiplier + " cps"
+            }
+            onClick={FactoryClicked}
+          />
+          <UpgradeItem
+            upgradeItem={nuclearPlant}
+            itemInfo={
+              "Nuclear Cookie Plant: +" +
+              nuclearPlant.strength * nuclearPlant.multiplier +
+              " cps"
+            }
+            onClick={NuclearPlantClicked}
           />
         </div>
       </div>
