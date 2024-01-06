@@ -214,23 +214,12 @@ export default function CookiePage() {
     }
   };
 
-  const [bool69, setBool69] = useState(false);
-  useEffect(() => {
-    if (!bool69) {
-      if (cookies >= Math.pow(6.9, 10)) {
-        alert("You won! Congrats on reaching 6.9^10 cookies!");
-        setBool69(true);
-      }
-    }
-  }, [cookies]);
-
   return (
     <>
       <div className="cookie-page">
         <div className="cookie-container">
           <CookieStats />
           <Cookie onClick={CookieClicked} />
-          <div id="6.9^10"></div>
         </div>
         <div className="cookie-upgrades">
           <div className="cookie-upgrades-text">Upgrades:</div>
