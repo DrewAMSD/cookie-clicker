@@ -10,12 +10,20 @@ export default function CookiePage() {
   const [doughRoller, setDoughRoller] = useState({
     cost: 10,
     numOwned: 0,
-    strength: 1,
+    strength: 2,
+    multiplier: 1,
   });
   const [grandma, setGrandma] = useState({
     cost: 10,
     numOwned: 0,
-    strength: 1,
+    strength: 5,
+    multiplier: 1,
+  });
+  const [farm, setFarm] = useState({
+    cost: 1111,
+    numOwned: 0,
+    strength: 100,
+    multiplier: 1,
   });
 
   useEffect(() => {
@@ -96,13 +104,14 @@ export default function CookiePage() {
       setDoughRoller((prevDoughRoller) => {
         const newDoughRoller = {
           ...prevDoughRoller,
-          cost: Math.round(prevDoughRoller.cost * 2.15),
+          cost: Math.floor(prevDoughRoller.cost * 2.1),
           numOwned: prevDoughRoller.numOwned + 1,
         };
         return newDoughRoller;
       });
       setClickStrength((prevClickStrength) => {
-        const newClickStrength = prevClickStrength + 1;
+        const newClickStrength =
+          prevClickStrength + doughRoller.strength * doughRoller.multiplier;
         return newClickStrength;
       });
     }
@@ -117,13 +126,34 @@ export default function CookiePage() {
       setGrandma((prevGrandma) => {
         const newGrandma = {
           ...prevGrandma,
-          cost: Math.round(prevGrandma.cost * 2.15),
+          cost: Math.floor(prevGrandma.cost * 1.15),
           numOwned: prevGrandma.numOwned + 1,
         };
         return newGrandma;
       });
       setCps((prevCps) => {
-        const newCps = prevCps + 1;
+        const newCps = prevCps + grandma.strength * grandma.multiplier;
+        return newCps;
+      });
+    }
+  };
+
+  const FarmClicked = () => {
+    if (cookies >= farm.cost) {
+      setCookies((prevCookies) => {
+        const newCookies = prevCookies - farm.cost;
+        return newCookies;
+      });
+      setFarm((prevFarm) => {
+        const newFarm = {
+          ...prevFarm,
+          cost: Math.floor(prevFarm.cost * 1.15),
+          numOwned: prevFarm.numOwned + 1,
+        };
+        return newFarm;
+      });
+      setCps((prevCps) => {
+        const newCps = prevCps + farm.strength * farm.multiplier;
         return newCps;
       });
     }
@@ -140,13 +170,24 @@ export default function CookiePage() {
           <div className="cookie-upgrades-text">Upgrades:</div>
           <UpgradeItem
             upgradeItem={doughRoller}
-            itemInfo={"Dough Roller: +1 click strength"}
+            itemInfo={
+              "Dough Roller: +" +
+              doughRoller.strength * doughRoller.multiplier +
+              " click strength"
+            }
             onClick={DoughRollerClicked}
           />
           <UpgradeItem
             upgradeItem={grandma}
-            itemInfo={"Grandma: +1 cps"}
+            itemInfo={
+              "Grandma: +" + grandma.strength * grandma.multiplier + " cps"
+            }
             onClick={GrandmaClicked}
+          />
+          <UpgradeItem
+            upgradeItem={farm}
+            itemInfo={"Farm: +" + farm.strength * farm.multiplier + " cps"}
+            onClick={FarmClicked}
           />
         </div>
       </div>
