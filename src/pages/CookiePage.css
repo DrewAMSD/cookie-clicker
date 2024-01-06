@@ -56,7 +56,7 @@
   margin-bottom: 10px;
 }
 
-.clickStrengthUpgrade-container {
+.upgradeItem-container {
   display: flex;
   flex-direction: row;
   border: 2px solid rgb(0, 0, 0);
@@ -66,17 +66,17 @@
   cursor: pointer;
 }
 
-.clickStrengthUpgrade-container:hover {
+.upgradeItem-container:hover {
   opacity: 0.7;
   background-color: rgb(38, 0, 73);
 }
 
-.clickStrengthUpgrade-container:active {
+.upgradeItem-container:active {
   opacity: 0.7;
   background-color: rgb(64, 0, 124);
 }
 
-.clickStrengthUpgrade-textcost-container {
+.upgradeItem-textcost-container {
   display: flex;
   flex-direction: column;
   justify-content: left;
@@ -85,7 +85,7 @@
   font-size: 20px;
 }
 
-.clickStrengthUpgrade-cost {
+.upgradeItem-cost {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -96,7 +96,7 @@
   clip-path: inset(16px 16px 16px 16px round 50%);
 }
 
-.clickStrengthUpgrade-num-owned {
+.upgradeItem-num-owned {
   display: flex;
   justify-content: right;
   align-items: center;
