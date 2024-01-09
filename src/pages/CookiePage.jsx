@@ -30,13 +30,13 @@ const itemInfo = {
   },
   5: {
     name: "Nuclear Cookie Oven",
-    cost: 82400,
+    cost: 130000,
     value: 1024,
     multiplier: 1.15,
   },
   6: {
     name: "Hydro Dough Facility",
-    cost: 500000,
+    cost: 1000000,
     value: 4048,
     multiplier: 1.15,
   },
