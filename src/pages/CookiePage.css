@@ -4,7 +4,7 @@
   align-items: center;
 }
 
-.cookie-container {
+.cookie-and-stats-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -43,13 +43,19 @@
   cursor: pointer;
 }
 
+.cookie-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+}
 .cookie-picture:hover {
-  height: 210px;
+  height: 205px;
   width: auto;
 }
 
 .cookie-picture:active {
-  height: 190px;
+  height: 195px;
   width: auto;
 }
 
