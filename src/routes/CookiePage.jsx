@@ -54,19 +54,6 @@ export default function CookiePage() {
     6: 0,
   });
 
-  useEffect(() => {
-    let cps = getCps();
-    const interval = setInterval(() => {
-      setCookies((prevCookies) => {
-        const newCookies = prevCookies + cps;
-        return newCookies;
-      });
-    }, 1000);
-    return () => {
-      clearInterval(interval);
-    };
-  });
-
   const getCps = () => {
     let cps = 0;
     Object.entries(items).forEach(([key, val]) => {
@@ -79,6 +66,20 @@ export default function CookiePage() {
     return Math.floor(itemInfo[key].cost * Math.pow(1.15, items[key]));
   };
 
+  let cps = getCps();
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCookies((prevCookies) => {
+        const newCookies = prevCookies + cps;
+        return newCookies;
+      });
+    }, 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  });
+  
   const CookieStats = () => {
     let cps = getCps();
     return (
