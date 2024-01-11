@@ -50,8 +50,6 @@ const itemInfo = {
 
 export default function CookiePage() {
   const [cookies, setCookies] = useState(0);
-  const powerUp = 1;
-  const powerUpTime = 0;
   const clickStrength = 1;
   const [items, setItems] = useState({
     1: 0,
@@ -80,7 +78,7 @@ export default function CookiePage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCookies((prevCookies) => {
-        const newCookies = prevCookies + cps * powerUp;
+        const newCookies = prevCookies + cps;
         return newCookies;
       });
     }, 1000);
