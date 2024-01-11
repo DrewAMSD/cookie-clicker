@@ -25,7 +25,7 @@ const itemInfo = {
   4: {
     name: "Chocolate Mine",
     cost: 11200,
-    value: 245,
+    value: 256,
     multiplier: 1.15,
   },
   5: {
@@ -37,13 +37,13 @@ const itemInfo = {
   6: {
     name: "Hydro Dough Facility",
     cost: 1000000,
-    value: 4048,
+    value: 4096,
     multiplier: 1.15,
   },
   7: {
     name: "Cookie Manuscript",
     cost: 10000000,
-    value: 8096,
+    value: 16384,
     multiplier: 1.15,
   },
 };
