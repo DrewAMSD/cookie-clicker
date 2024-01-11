@@ -29,7 +29,7 @@ const itemInfo = {
     multiplier: 1.15,
   },
   5: {
-    name: "Nuclear Cookie Oven",
+    name: "Nuclear Oven",
     cost: 130000,
     value: 1024,
     multiplier: 1.15,
@@ -40,10 +40,18 @@ const itemInfo = {
     value: 4048,
     multiplier: 1.15,
   },
+  7: {
+    name: "Cookie Manuscript",
+    cost: 10000000,
+    value: 8096,
+    multiplier: 1.15,
+  },
 };
 
 export default function CookiePage() {
   const [cookies, setCookies] = useState(0);
+  const powerUp = 1;
+  const powerUpTime = 0;
   const clickStrength = 1;
   const [items, setItems] = useState({
     1: 0,
@@ -52,6 +60,7 @@ export default function CookiePage() {
     4: 0,
     5: 0,
     6: 0,
+    7: 0,
   });
 
   const getCps = () => {
@@ -71,7 +80,7 @@ export default function CookiePage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCookies((prevCookies) => {
-        const newCookies = prevCookies + cps;
+        const newCookies = prevCookies + cps * powerUp;
         return newCookies;
       });
     }, 1000);
@@ -84,7 +93,7 @@ export default function CookiePage() {
     let cps = getCps();
     return (
       <div className="cookie-stats">
-        <div>Total Cookies:</div>
+        <div className="total-cookies">Total Cookies:</div>
         <div className="total-cookies">{cookies}</div>
         <div>cps:</div>
         <div>{cps}</div>
